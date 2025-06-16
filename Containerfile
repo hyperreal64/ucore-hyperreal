@@ -5,7 +5,9 @@ RUN curl -o /etc/yum.repos.d/headscale.repo \
     https://copr.fedorainfracloud.org/coprs/jonathanspw/headscale/repo/fedora-42/jonathanspw-headscale-fedora-42.repo \
     && curl -o /etc/yum.repos.d/caddy.repo \
     https://copr.fedorainfracloud.org/coprs/g/caddy/caddy/repo/fedora-42/group_caddy-caddy-fedora-42.repo \
-    && rpm-ostree install bootc caddy fail2ban firewalld headscale neovim node-exporter \
+    && curl -o /etc/yum.repos.d/tailscale.repo \
+    https://pkgs.tailscale.com/stable/fedora/tailscale.repo \
+    && rpm-ostree install bootc caddy fail2ban firewalld headscale neovim node-exporter tailscale \
     && ostree container commit
 
 ### LINTING
